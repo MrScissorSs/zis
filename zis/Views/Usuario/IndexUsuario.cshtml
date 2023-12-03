@@ -1,0 +1,55 @@
+﻿@using System.Globalization;
+@model IEnumerable<zis.Models.Usuario>
+
+@{
+    ViewData["Title"] = "IndexUsuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card bg-dark text-white shadow m-2 p-2">
+    <div class="card-body text-center">
+        <h5 class="card-title">Listado de Usuarios</h5>
+        <a class="btn btn-outline-light" asp-action="AddUsuario"><i class="bi bi-plus-circle mx-2"></i>Agregar Nuevo Usuario</a>
+    </div>
+</div>
+
+<div class="card m-3">
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Rol
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+              
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rol)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item"><i class="fa-solid fa-user-pen m-2"></i></a>
+                    <a onclick="return confirm('¿Estas Seguro?')" asp-action="EliminarProducto" asp-route-Id="@item"><i class="fa-solid fa-user-xmark m-2"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

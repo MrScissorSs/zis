@@ -1,0 +1,48 @@
+﻿@model zis.Models.Citas
+@{
+    ViewData["Title"] = "AddCitas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card bg-dark text-white shadow m-2 p-2">
+    <div class="card-body text-center">
+        <h5 class="card-title">Agendar Cita</h5>
+        <a class="btn btn-outline-light" asp-action="IndexCitas"><i class="bi bi-arrow-left-circle mx-2"></i>Volver al Listado</a>
+    </div>
+</div>
+<div class="row m-2 p-2">
+    <div class="col-md-4">
+        <form asp-action="AddCitas">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mt-2">
+                <label asp-for="Usuario_Cita" class="control-label"></label>
+                <input asp-for="Usuario_Cita" class="form-control" />
+                <span asp-validation-for="Usuario_Cita" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label asp-for="Empleado_Cita" class="control-label"></label>
+                <input asp-for="Empleado_Cita" class="form-control" />
+                <span asp-validation-for="Empleado_Cita" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label asp-for="Fecha_Cita" class="control-label"></label>
+                <input asp-for="Fecha_Cita" class="form-control" />
+                <span asp-validation-for="Fecha_Cita" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label asp-for="Hora" class="control-label"></label>
+                <input asp-for="Hora" class="form-control" />
+                <span asp-validation-for="Hora" class="text-danger"></span>
+
+            <div class="form-group mt-2">
+                <input type="submit" value="Agendar Cita" class="btn btn-outline-dark col-12" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

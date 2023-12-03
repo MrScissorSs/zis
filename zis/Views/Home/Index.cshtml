@@ -1,0 +1,68 @@
+﻿@using Microsoft.AspNetCore.Identity
+@{
+    ViewData["Title"] = "Home Page";
+    var edad = 15;
+    var list = new List<string>()
+            {
+                "Chile",
+                "Argentina",
+                "Peru"
+            };
+}
+
+
+<div class="text-center row justify-content-center mt-2">
+    <h1 class="display-5">Bienvenido</h1>
+    
+    
+        @if (User.IsInRole("SuperAdministrador") || User.IsInRole("Empleado"))
+        {
+       
+            <div class="col-lg-4">
+                <div class="card p-3">
+                    <i class="fa fa-building" aria-hidden="true" style="font-size:5rem;"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Gestion de Productos</h5>
+                        <img src="https://cdn-icons-png.flaticon.com/512/4133/4133524.png" width="165" class="mx-auto d-block" />
+                        <p class="card-text">Crear, Editar o Eliminar Productos del inventario.</p>
+                        <a asp-controller="Producto" asp-action="IndexProductos"
+                           class="btn btn-outline-danger col-12">Ir a la Gestion De Productos</a>
+                    </div>
+                </div>
+            </div>
+        
+
+        }
+
+        <div class="col-lg-4">
+            <div class="card p-3">
+                <i class="fa fa-building" aria-hidden="true" style="font-size:5rem;"></i>
+                <div class="card-body">
+                    <h5 class="card-title">Gestion de Citas</h5>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1572/1572132.png" width="165" class="mx-auto d-block" />
+                    <p class="card-text">Revision de Citas.</p>
+                    <a asp-controller="Citas" asp-action="IndexCitas"
+                       class="btn btn-outline-danger col-12">Ir a la Gestion De Citas</a>
+                </div>
+            </div>
+        </div>
+        @if (User.IsInRole("SuperAdministrador") || User.IsInRole("Empleado"))
+        {
+            <div class="col-lg-4">
+                <div class="card p-3">
+                    <i class="fa fa-building" aria-hidden="true" style="font-size:5rem;"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Gestion de Usuarios</h5>
+                        <img src="https://cdn-icons-png.flaticon.com/512/32/32441.png" width="165" class="mx-auto d-block" />
+                        <p class="card-text">Crear, Editar o Eliminar Usuarios.</p>
+                        <a asp-controller="Usuario" asp-action="IndexUsuario"
+                           class="btn btn-outline-danger col-12">Ir a la Gestion De Usuarios</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+</div>
+   
+

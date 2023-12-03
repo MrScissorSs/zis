@@ -1,0 +1,39 @@
+﻿@model LoginViewModel
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body class="p-3 mb-2 bg-secondary text-white">
+        <div class=" row justify-content-center p-5 m-5">
+        <form method="POST" asp-controller="Auth" asp-action="LoginIn" class="col-md-6 text-center shadow p-5 p-3 mb-2 bg-info text-dark">
+            <img src="https://cdn-icons-png.flaticon.com/512/7127/7127998.png" width="165" />
+
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Correo</label>
+                    <input type="email" asp-for="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                    <input type="password" asp-for="Password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+                 <div class="form-group m-3 text-center">
+                <a asp-area="" asp-controller="Auth" asp-action="AddUsuarioCliente">si eres nuevo crea tu cuenta aqui.</a>
+                </div>
+            </form>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
